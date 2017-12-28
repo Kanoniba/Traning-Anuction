@@ -14,6 +14,7 @@ import {StarsComponent} from './stars/stars.component';
 import {RouterModule, Routes} from '@angular/router';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {StockformComponent} from './stock/stockform/stockform.component';
+import {StockService} from './stock/stock.service';
 
 const routeConfig: Routes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
@@ -39,7 +40,7 @@ const routeConfig: Routes = [
     BrowserModule,
     RouterModule.forRoot(routeConfig)
   ],
-  providers: [],
+  providers: [StockService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
