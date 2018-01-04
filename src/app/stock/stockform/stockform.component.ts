@@ -10,6 +10,7 @@ import {Stock, StockService} from '../stock.service';
 export class StockformComponent implements OnInit {
 
   stock: Stock;
+  lastRating: number;
 
   constructor(private route: Router, public routeInfo: ActivatedRoute, private stockService: StockService) {
   }
@@ -17,11 +18,13 @@ export class StockformComponent implements OnInit {
   ngOnInit() {
     this.routeInfo.params.subscribe(params => {
       this.stock = this.stockService.getStock(parseInt(params['id'], 10));
+      this.lastRating = this.stock.rating;
     });
   }
 
   cancel() {
     this.route.navigateByUrl('/stock');
+    this.stock.rating = this.lastRating;
   }
 
   save() {

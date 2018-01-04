@@ -24,7 +24,7 @@ export class StockService {
   getStock(id: number): Stock {
     let retStock = this.stocks.find((stock) => (stock.id === id));
     if (!retStock) {
-      retStock = new Stock(0, '第0之股票', 0, 0, '找不到股票所以跑出這隻', ['2', '2']);
+      retStock = new Stock(0, '請輸入股票名稱', 0, 0, '請輸入股票描述', ['2', '2']);
     }
     return retStock;
   }
